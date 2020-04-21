@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import ABICoder from 'aion-web3-avm-abi'
 import "makkii-webview-bridge";
 
-const CONTRACT = "0xa0973e28801effde19b35e2ed46457a56b507148295e23cb26112d833f941626"
+const CONTRACT = "0xa0c52ed6f7216907e1c5cc01031e0f98b84aa711d668261556ead703db434ec1"
 const BN_AION = new BigNumber("1000000000000000000")
 const abi = new ABICoder()
 
