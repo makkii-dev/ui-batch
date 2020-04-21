@@ -73,7 +73,7 @@ class Index extends Component {
                             <td><input style={{width:'100%'}} value={CONTRACT} disabled /></td>
                         </tr>
                         <tr>
-                            <td><a onClick={e=>{
+                            <td><button className="primary" onClick={e=>{
                                 makkii.switchAccount()
                                 .then(account => {
                                     this.setState({
@@ -84,7 +84,7 @@ class Index extends Component {
                                     console.log('[switch-account] err', err)
                                 })
 
-                            }}>Current Account</a></td>
+                            }}>Switch Account</button></td>
                             <td><input style={{width:'100%'}}  value={this.state.account} disabled /></td>
                         </tr>
                         <tr>
@@ -166,7 +166,7 @@ class Index extends Component {
                     </table>
                 </div>
                 <div className="row">
-                    <button type="button" style={{width: "100%"}} onClick={(e)=>{
+                    <button className="primary" style={{width: "100%"}} onClick={(e)=>{
                         this.batch_send()
                         e.preventDefault()
                     }}>Send</button>
