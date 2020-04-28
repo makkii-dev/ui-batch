@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
 import BigNumber from 'bignumber.js'
-import ABICoder from 'aion-web3-avm-abi'
+import ABICoder from '@makkii/aion-web3-avm-abi'
 import "makkii-webview-bridge";
 
 const CONTRACT = "0xa0c52ed6f7216907e1c5cc01031e0f98b84aa711d668261556ead703db434ec1"
@@ -33,6 +33,7 @@ class Index extends Component {
     }
 
     batch_send() {
+      try {
         const data = abi.encodeMethod(
             'send',
             ['address[]', 'biginteger[]'],
@@ -53,6 +54,9 @@ class Index extends Component {
         .catch(err => {
             alert('[batch_create] err ' + JSON.stringify(err))
         })
+      } catch (err) {
+        alert("encode error:" + JSON.stringify(err));
+      }
     }
 
     render() {
