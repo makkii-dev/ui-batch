@@ -58,16 +58,16 @@ class Index extends Component {
     render() {
         let parent = this
         return (
-            <div className="container" style={{padding:"0 0 10px 0"}}>
-                <div className="row">
-                    <div className="col-sm-12">
+            <div style={{padding:"0 0 10px 0"}}>
+                <div>
+                    <div>
                         <div style={{padding:"10px", fontSize:'20px', lineHeight:"25px"}}>
                             <span>Batch</span> <small>(max 80 records per batch)</small>
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <table className="col-sm-12">
+                <div >
+                    <table >
                         <tr>
                             <td>Contract Address</td>
                             <td><input style={{width:'100%'}} value={CONTRACT} disabled /></td>
@@ -99,7 +99,7 @@ class Index extends Component {
                                     let input_file = document.querySelector('#csv').files[0]        
                                     let reader = new FileReader()
                                     reader.onload = function(){
-                                        let lines = reader.result.split("\n")
+                                        let lines = reader.result.split(/\s+/).filter(v => Boolean(v))
                                         let count = lines.length
                                         if(count > 80) 
                                             alert('[80-records-max]')
@@ -110,6 +110,7 @@ class Index extends Component {
                                             let value = new BigNumber(0)
 
                                             for(let i = 0; i < count; i++){
+                                              console.log("line:", lines[i]);
                                                 let recipient = lines[i].split(',')
                                                 let address = recipient[0]
                                                 let amount = recipient[1]

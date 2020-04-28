@@ -6,10 +6,11 @@
   "dependencies": {
     "aion-web3-avm-abi": "1.2.6-beta.6",
     "bignumber.js": "^9.0.0",
+    "html-webpack-plugin": "^4.2.0",
     "install": "^0.13.0",
+    "makkii-webview-bridge": "https://github.com/chaion/makkii-webview-bridge.git#933db99693f2cde78a5ef03f53fe07d954a7fa6d",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "makkii-webview-bridge": "https://github.com/chaion/makkii-webview-bridge.git#933db99693f2cde78a5ef03f53fe07d954a7fa6d"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -17,9 +18,12 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.1"
   },
   "scripts": {
+    "start": "MODE=development webpack-dev-server --config ./webpack.config.js --watch --progress",
+    "build": "rm -rf dist && MODE=production webpack --config ./webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
